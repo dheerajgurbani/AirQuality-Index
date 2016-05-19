@@ -5,11 +5,11 @@ var m=require("mysql");
 
 var c=m.createConnection({
 
-	host: 'ec2-54-200-15-154.us-west-2.compute.amazonaws.com',
+	host: 'ec2-54-200-218-121.us-west-2.compute.amazonaws.com',
 
-	user: 'root',
+	user: 'dheeraj',
 
-	password: '',
+	password: 'root',
 
 //socketPath : '/tmp/mysql.sock',
 
