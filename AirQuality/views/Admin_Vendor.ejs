@@ -1,0 +1,103 @@
+<html>
+<head>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<meta charset=utf-8 />
+</head>
+
+<body>
+<!-- <div id="area-example" style="height: 250px;"></div> -->
+
+<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+</body>
+
+<script >
+var totalquery=[];
+
+var tag=[];
+
+ <% for (var d=0;d<data.length;d++){%>
+ totalquery.push("<%= data[d].vendor_name %>");
+ tag.push(<%= data[d].noOfSensors %>)
+ <%}%>
+/* new Morris.Line({
+	  // ID of the element in which to draw the chart.
+	  element: 'myfirstchart',
+	  // Chart data records -- each entry in this array corresponds to a point on
+	  // the chart.
+	  data: [
+	    { year: totalquery, value: tag }
+	  ],
+	  // The name of the data record attribute that contains x-values.
+	  xkey: 'year',
+	  // A list of names of data record attributes that contain y-values.
+	  ykeys: ['value'],
+	  // Labels for the ykeys -- will be displayed when you hover over the
+	  // chart.
+	  labels: ['Value']
+	}); */
+	
+	
+	$(function () {
+
+	    $(document).ready(function () {
+
+	        // Build the chart
+	        $('#container').highcharts({
+	            chart: {
+	                plotBackgroundColor: null,
+	                plotBorderWidth: null,
+	                plotShadow: false,
+	                type: 'pie'
+	            },
+	            title: {
+	                text: 'Vendor Earnings'
+	            },
+	            tooltip: {
+	                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+	            },
+	            plotOptions: {
+	                pie: {
+	                    allowPointSelect: true,
+	                    cursor: 'pointer',
+	                    dataLabels: {
+	                        enabled: false
+	                    },
+	                    showInLegend: true
+	                }
+	            },
+	            series: [{
+	                name: 'Sensors',
+	                colorByPoint: true,
+	                data: [{
+	                    name: 'Vendor 1',
+	                    y: 56.33
+	                }, {
+	                    name: 'Vendor 2',
+	                    y: 24.03,
+	                    sliced: true,
+	                    selected: true
+	                }, {
+	                    name: 'Vendor 3',
+	                    y: 10.38
+	                }, {
+	                    name: 'Vendor 4',
+	                    y: 4.77
+	                }, {
+	                    name: 'Vendor 5',
+	                    y: 0.91
+	                }, {
+	                    name: 'Proprietary or Undetectable',
+	                    y: 0.2
+	                }]
+	            }]
+	        });
+	    });
+	});
+</script>
+</html>

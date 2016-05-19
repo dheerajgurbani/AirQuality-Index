@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script type="text/javascript">
+var totalquery1=[];
+
+var tag1=[];
+
+ <% for (var d=0;d<data.length;d++){%>
+ totalquery1.push(<%= data[d].bill %>);
+ tag1.push(<%= data[d].vendor_id %>)
+
+
+
+ <%}%>
+
+	$(function () {
+	    $('#vendorRevenue').highcharts({
+	        chart: {
+	            type: 'area'
+	        },
+	        title: {
+	            text: ''
+	        },
+	        
+	        xAxis: {
+	            categories: tag1,
+	            crosshair: true,
+	            title: {
+	                text: 'Vendor'
+	            }
+	        },
+	        yAxis: {
+	            min: 0,
+	            title: {
+	                text: 'Revenue(USD)'
+	            }
+	        },
+	        tooltip: {
+	            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+	            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+	                '<td style="padding:0"><b>{point.y:.1f} USD</b></td></tr>',
+	            footerFormat: '</table>',
+	            shared: true,
+	            useHTML: true
+	        },
+	        plotOptions: {
+	            column: {
+	                pointPadding: 0.2,
+	                borderWidth: 0
+	            }
+	        },
+	        series: [{
+	            name: 'Revenue(USD)',
+	            data: totalquery1
+
+	        }]
+	    });
+	});
+	
+
+
+
+
+</script>
+</head>
+<body id="page-top" class="index" style="background:#18bc9c;">
+
+<div class="row">
+
+    <div class="col-sm-2">
+    <img src="/stylesheets/img/st.gif" alt="Stack" style="width:400px;height:120px;" Stack Overflow Data Analysis>
+    &nbsp;
+    </div>
+ </div>
+ 
+     
+
+<div  style="color:white;margin-left:128px;"><H3>Graphical Information</H3></div>
+<div id="vendorRevenue" style="height: 300px"></div>
+
+</body>
+</html>

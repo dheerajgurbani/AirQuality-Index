@@ -1,0 +1,589 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 9]>
+<html class="ie lt-ie9" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="profile" href="http://gmpg.org/xfn/11"/>
+    <link rel="pingback" href="http://aistro.com/xmlrpc.php"/>
+
+    <title>Vendor registration and login &#8211; My AQI</title>
+<link rel="alternate" type="application/rss+xml" title="Aistro IT Solution &raquo; Feed" href="http://aistro.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Aistro IT Solution &raquo; Comments Feed" href="http://aistro.com/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/aistro.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.4.3"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;return g&&g.fillText?(g.textBaseline="top",g.font="600 32px Arial","flag"===a?(g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3):"diversity"===a?(g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e):("simple"===a?g.fillText(h(55357,56835),0,0):g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag"),unicode8:d("unicode8"),diversity:d("diversity")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag&&c.supports.unicode8&&c.supports.diversity||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='siteorigin-panels-front-css'  href='http://aistro.com/wp-content/plugins/siteorigin-panels/css/front.css?ver=2.2.2' type='text/css' media='all' />
+<link rel='stylesheet' id='smartlib_bootstrap-css'  href='http://aistro.com/wp-content/themes/bootframe-core/assets/css/bootstrap.css?ver=4.4.3' type='text/css' media='all' />
+<link rel='stylesheet' id='smartlib_font_awesome-css'  href='http://aistro.com/wp-content/themes/bootframe-core/assets/vendor/font-awesome/css/font-awesome.min.css?ver=4.4.3' type='text/css' media='all' />
+<link rel='stylesheet' id='smartlib_prettyphoto-css'  href='http://aistro.com/wp-content/themes/bootframe-core/assets/vendor/prettyPhoto/css/prettyPhoto.css?ver=4.4.3' type='text/css' media='all' />
+<link rel='stylesheet' id='smartlib_main-css'  href='http://aistro.com/wp-content/themes/bootframe-core/style.css?ver=4.4.3' type='text/css' media='all' />
+<style id='smartlib_main-inline-css' type='text/css'>
+@media (min-width:1200px) {.container, .smartlib-content-section,.smartlib-full-strech-section .panel-row-style{width:1200px}#sidebar{width:320px}#page{width:880px}}
+</style>
+<link rel='stylesheet' id='smartlib_flexislider-css'  href='http://aistro.com/wp-content/themes/bootframe-core/assets/vendor/flexslider/flexslider.css?ver=4.4.3' type='text/css' media='all' />
+<link rel='stylesheet' id='smartlib_animate-css'  href='http://aistro.com/wp-content/themes/bootframe-core/assets/css/animate.css?ver=4.4.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bp-legacy-css-css'  href='http://aistro.com/wp-content/plugins/buddypress/bp-templates/bp-legacy/css/buddypress.min.css?ver=2.4.3' type='text/css' media='screen' />
+<link rel='stylesheet' id='contact-form-7-css'  href='http://aistro.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=4.3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='smartlib_main_css-css'  href='http://aistro.com/wp-content/plugins/smartlib-tools/assets/smart-tools.css?ver=4.4.3' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack_css-css'  href='http://aistro.com/wp-content/plugins/jetpack/css/jetpack.css?ver=3.8.2' type='text/css' media='all' />
+<script type='text/javascript' src='http://aistro.com/wp-includes/js/jquery/jquery.js?ver=1.11.3'></script>
+<script type='text/javascript' src='http://aistro.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<script type='text/javascript' src='http://aistro.com/wp-content/themes/bootframe-core/assets/vendor/flexslider/jquery.flexslider-min.js'></script>
+<script type='text/javascript' src='http://aistro.com/wp-content/themes/bootframe-core/assets/vendor/prettyPhoto/js/jquery.prettyPhoto.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var BP_Confirm = {"are_you_sure":"Are you sure?"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://aistro.com/wp-content/plugins/buddypress/bp-core/js/confirm.min.js?ver=2.4.3'></script>
+<script type='text/javascript' src='http://aistro.com/wp-content/plugins/buddypress/bp-core/js/widget-members.min.js?ver=2.4.3'></script>
+<script type='text/javascript' src='http://aistro.com/wp-content/plugins/buddypress/bp-core/js/jquery-query.min.js?ver=2.4.3'></script>
+<script type='text/javascript' src='http://aistro.com/wp-content/plugins/buddypress/bp-core/js/jquery-cookie.min.js?ver=2.4.3'></script>
+<script type='text/javascript' src='http://aistro.com/wp-content/plugins/buddypress/bp-core/js/jquery-scroll-to.min.js?ver=2.4.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var BP_DTheme = {"accepted":"Accepted","close":"Close","comments":"comments","leave_group_confirm":"Are you sure you want to leave this group?","mark_as_fav":"Favorite","my_favs":"My Favorites","rejected":"Rejected","remove_fav":"Remove Favorite","show_all":"Show all","show_all_comments":"Show all comments for this thread","show_x_comments":"Show all %d comments","unsaved_changes":"Your profile has unsaved changes. If you leave the page, the changes will be lost.","view":"View"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://aistro.com/wp-content/plugins/buddypress/bp-templates/bp-legacy/js/buddypress.min.js?ver=2.4.3'></script>
+<link rel='https://api.w.org/' href='http://aistro.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://aistro.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://aistro.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Responsive design' href='http://aistro.com/responsive-design/' />
+<link rel='next' title='Shipping method integration' href='http://aistro.com/shipping-method-integration/' />
+<meta name="generator" content="WordPress 4.4.3" />
+<link rel="canonical" href="http://aistro.com/user-registration-and-login/" />
+<link rel='shortlink' href='http://wp.me/p6vZ2Y-T' />
+<link rel="alternate" type="application/json+oembed" href="http://aistro.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Faistro.com%2Fuser-registration-and-login%2F" />
+<link rel="alternate" type="text/xml+oembed" href="http://aistro.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Faistro.com%2Fuser-registration-and-login%2F&#038;format=xml" />
+
+	<script type="text/javascript">var ajaxurl = 'http://aistro.com/wp-admin/admin-ajax.php';</script>
+
+
+<link rel='dns-prefetch' href='//i0.wp.com'>
+<link rel='dns-prefetch' href='//i1.wp.com'>
+<link rel='dns-prefetch' href='//i2.wp.com'>
+<style type='text/css'>img#wpstats{display:none}</style>
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="User registration and login" />
+<meta property="og:url" content="http://aistro.com/user-registration-and-login/" />
+<meta property="og:description" content="We&#8217;ll provide your customers &#8216;My account&#8217; page Aistro IT Solution gives your customers a unique experience of shopping through their own profile creation. We give the users to cre…" />
+<meta property="article:published_time" content="2016-01-06T22:54:13+00:00" />
+<meta property="article:modified_time" content="2016-01-12T06:03:47+00:00" />
+<meta property="og:site_name" content="Aistro IT Solution" />
+<meta property="og:image" content="http://xilloninfotech.com/images/banner_Login.jpg" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<link rel="icon" href="http://i2.wp.com/aistro.com/wp-content/uploads/2016/01/favicon.png?fit=32%2C32" sizes="32x32" />
+<link rel="icon" href="http://i2.wp.com/aistro.com/wp-content/uploads/2016/01/favicon.png?fit=1%2C1" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="http://i2.wp.com/aistro.com/wp-content/uploads/2016/01/favicon.png?fit=180%2C180" />
+<meta name="msapplication-TileImage" content="http://i2.wp.com/aistro.com/wp-content/uploads/2016/01/favicon.png?fit=1%2C1" />
+			<!-- Easy Columns 2.1.1 by Pat Friedl http://www.patrickfriedl.com -->
+			<link rel="stylesheet" href="http://aistro.com/wp-content/plugins/easy-columns/css/easy-columns.css" type="text/css" media="screen, projection" />
+						
+							<style id="tt-easy-google-font-styles" type="text/css">
+			
+																						p {
+													}
+								
+																										h1 {
+													}
+								
+																										h2 {
+													}
+								
+																										h3 {
+													}
+								
+																										h4 {
+													}
+								
+																										h5 {
+													}
+								
+																										h6 {
+													}
+								
+										
+							</style>
+						
+</head>
+
+<body class="single single-post postid-55 single-format-standard smartlib-body-has-topbar smartlib-body-navigation-fixed no-js">
+<!-- Navigation -->
+<nav
+    class="navbar navbar-inverse  navbar-default  smartlib-navbar smartlib-default-top-navbar smartlib-navbar-with-search navbar-fixed-top"
+    role="navigation">
+
+    <div class="smartlib-top-navbar">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-xs-7 col-md-9">
+
+                    
+                    <div class="menu-profile-menu-container"><ul id="menu-profile-menu" class="nav nav-pills nav-top hidden-xs hidden-sm hidden-md"><li id="menu-item-126" class="bp-menu bp-login-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-126"><a href="http://aistro.com/wp-login.php?redirect_to=http%3A%2F%2Faistro.com%2Fuser-registration-and-login%2F">Log In</a></li>
+<li id="menu-item-127" class="bp-menu bp-register-nav menu-item menu-item-type-custom menu-item-object-custom menu-item-127"><a href="/VendorRegister">Vendor Register</a></li>
+</ul></div>
+                    <p class="smartlib-top-bar-info"></p>
+
+            </div>
+            <div class="col-xs-5 col-md-3 hidden-xs">
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+    <div class="smartlib-bottom-navbar">
+        <div class="container">
+            <div class="row smartlib-expand-row">
+                <div class="col-lg-4">
+                    <h4 class="smartlib-logo-header" itemprop="headline">    <a href="http://aistro.com/"
+       title="Aistro IT Solution"
+       rel="home"
+       class="smartlib-site-logo smartlib-image-logo-link">
+                    <img src="stylesheets/img/st.gif" alt="My AQI" style="height: 70px;"/>
+        </a>
+    </h4>                </div>
+                <div class="col-lg-8">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="smartlib-search-navigation-area">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                    data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <div class="menu-primary-main-menu-container"><ul id="menu-primary-main-menu" class="nav navbar-nav navbar-right smartlib-menu smartlib-navbar-menu"><li id="menu-item-14" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-14"><a title="Home" href="http://aistro.com/"><span class="glyphicon Go to Aistro home page"></span>&nbsp;Home</a></li>
+<li id="menu-item-29" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29"><a title="About" href="http://aistro.com/about-aistro-it-solution/">About</a></li>
+<li id="menu-item-31" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-31"><a title="Contact" href="http://aistro.com/contact/">Contact</a></li>
+<li id="menu-item-32" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-32"><a title="Order now" href="http://aistro.com/order-now/">Order now</a></li>
+<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a title="Career" href="http://aistro.com/career/">Career</a></li>
+<li id="menu-item-168" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-168"><a title="Multivendor Store development" target="_blank" href="http://marketplace.aistro.com/"><span class="glyphicon Multivendor Market place development and maintenace service"></span>&nbsp;Multivendor Store development</a></li>
+</ul></div>
+
+                        </div>
+
+                        <form id="searchForm" class="smartlib-navbar-search-form pull-right"
+      action="http://aistro.com/" method="get"
+      novalidate="novalidate">
+    <a href="#" class="btn smartlib-search-close-form smartlib-btn-close"></a>
+
+    <div class="input-group">
+        <input id="search-input" type="text" name="s"
+               placeholder="Search for ..." value="">
+								<span class="input-group-btn">
+									<button class="btn btn-default btn-sm smartlib-search-btn" type="submit"><i
+                                            class="fa fa-search"></i></button>
+								</span>
+    </div>
+</form>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+    <!-- /.container -->
+</nav>
+<!-- END Navigation -->
+    <section class="smartlib-content-section container">
+        
+            <ol class="breadcrumb"><li><a href="http://aistro.com">Aistro IT Solution</a><span class="smartlib-separator">/</span></li>                        <li><a href="http://aistro.com/category/ecommerc-features-from-aistro/">Features</a><span class="smartlib-separator">/</span></li>
+                        </ol>            <header class="smartlib-box-header">
+                <h1 class="entry-title">Vendor registration and login</h1>
+            </header>
+
+            <div id="page" role="main"
+                 class="smartlib-left-content">
+
+                
+<article id="post-55" class="smartlib-article-box post-55 post type-post status-publish format-standard hentry category-ecommerc-features-from-aistro tag-login-function tag-user-registration">
+
+    <div>
+    
+    <div >
+        	<div class="panel panel-default" style="height: 500px;width: 515px;">
+        		<div class="panel-heading" style="width: 500px;">
+			    		<h3 class="panel-title">MyAQI Vendors Sign In   <small> Earn Cash By Adding Sensors</small></h3>
+			 			</div>
+			 			<div class="panel-body">
+			    		<form role="form" method="post" action="VendorSignInComplete">
+			    		
+			    		
+			    			<div class="form-group">
+			    				<input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address">
+			    			</div>
+			    			
+			    			
+			    					<div class="form-group">
+			    						<input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password">
+			    					</div>
+			    				    <div class="form-group">
+			    						<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password">
+			    					</div>
+			    			<br>
+			    			
+			    			<input type="submit" value="Register" class="btn btn-info btn-block"><br>
+			    		</form>
+			    		<form action="/vendorAlreadyUser">
+			    		<input type="submit" value="Already a user" class="btn btn-info btn-block">
+			    		</form>
+			    		
+			    	</div>
+	    		</div>
+    		</div>
+    
+    
+    
+    
+    </div>
+
+            <div class="smartlib-side-post-panel">
+
+                        <ul class="smartlib-single-article-social-buttons pull-right">
+                                    <li>
+                        <div class="fb-like" data-href="" data-layout="box_count"
+                             data-action="like" data-show-faces="false" data-share="false"></div>
+                    </li>
+                
+                                    <li><a href="https://twitter.com/share" class="twitter-share-button">Tweet</a></li>
+
+                                                    <li style="padding-top: 25px;"><a data-pin-config="above" href="//pinterest.com/pin/create/button/"
+                                                      data-pin-do="buttonBookmark"><img
+                                src="//assets.pinterest.com/images/pidgets/pin_it_button.png"/></a></li>
+
+                
+                                    <li>
+                        <script src="https://apis.google.com/js/platform.js" async defer></script>
+                        <g:plusone></g:plusone>
+                    </li>
+
+                            </ul>
+                </div>
+    
+    <footer class="smrtlib-post-footer">
+            </footer>
+
+
+</article>
+
+                
+                            <div class="smartlib-related-posts panel">
+                <header class="panel-heading">
+                    <h3>Related posts</h3>
+                </header>
+                <div class="smartlib-slider-container panel-body">
+                    <ul class="smartlib-layout-list slider-list slides ">
+                                                        <li class="row">
+                                                        <div class="col-md-3 col-sm-6">
+                                                                <h4><a href="http://aistro.com/one-year-free-technical-support/">One year free technical support</a></h4>
+                                                                            <p class="smartlib-meta-line">
+                    </p>
+                                                                </div>
+
+                                                        <div class="col-md-3 col-sm-6">
+                                                                <h4><a href="http://aistro.com/store-management-panel/">Store management panel</a></h4>
+                                                                            <p class="smartlib-meta-line">
+                    </p>
+                                                                </div>
+
+                                                        <div class="col-md-3 col-sm-6">
+                                                                <h4><a href="http://aistro.com/stock-management/">Stock management</a></h4>
+                                                                            <p class="smartlib-meta-line">
+                    </p>
+                                                                </div>
+
+                                                        <div class="col-md-3 col-sm-6">
+                                                                <h4><a href="http://aistro.com/invoice-management/">Invoice management</a></h4>
+                                                                            <p class="smartlib-meta-line">
+                    </p>
+                                                                </div>
+
+                                                            </li>
+                                                                <li class="row">
+                                                        <div class="col-md-3 col-sm-6">
+                                                                <h4><a href="http://aistro.com/order-management/">Order management</a></h4>
+                                                                            <p class="smartlib-meta-line">
+                    </p>
+                                                                </div>
+
+                                                        <div class="col-md-3 col-sm-6">
+                                                                <h4><a href="http://aistro.com/customer-management-system/">Customer management system</a></h4>
+                                                                            <p class="smartlib-meta-line">
+                    </p>
+                                                                </div>
+
+                                                        <div class="col-md-3 col-sm-6">
+                                                                <h4><a href="http://aistro.com/payment-gateway-integration/">Payment gateway integration</a></h4>
+                                                                            <p class="smartlib-meta-line">
+                    </p>
+                                                                </div>
+
+                                                        <div class="col-md-3 col-sm-6">
+                                                                <h4><a href="http://aistro.com/shopping-cart-integration/">Shopping cart integration</a></h4>
+                                                                            <p class="smartlib-meta-line">
+                    </p>
+                                                                </div>
+
+                                                            </li>
+                                                    </ul>
+                </div>
+
+
+            </div>
+        
+                
+
+            </div><!-- END #page -->
+                            <section id="sidebar"
+                     class="smartlib-right-sidebar">
+                <ul class="smartlib-layout-list smartlib-column-list smartlib-sm-2-columns-list">        <li><div id="nav_menu-3" class="panel widget smartlib-widget widget_nav_menu"><header class="panel-heading smartlib-widget-header"><h3 class="panel-title">Vendors Features by My AQI:</h3></header><div class="menu-sidebar-menu-container"><ul id="menu-sidebar-menu" class="menu"><li id="menu-item-80" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-80"><a href="http://aistro.com/free-domain-for-life/">Free domain for life</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-91"><a href="http://aistro.com/unlimited-ssd-space/">Unlimited SSD space</a></li>
+<li id="menu-item-92" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-92"><a href="http://aistro.com/unlimited-traffic/">Unlimited traffic</a></li>
+<li id="menu-item-81" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-81"><a href="http://aistro.com/free-ssl-certificate/">Free SSL certificate</a></li>
+<li id="menu-item-93" class="menu-item menu-item-type-post_type menu-item-object-post current-menu-item menu-item-93"><a href="http://aistro.com/user-registration-and-login/">User registration and login</a></li>
+<li id="menu-item-88" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-88"><a href="http://aistro.com/shopping-cart-integration/">Shopping cart integration</a></li>
+<li id="menu-item-85" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-85"><a href="http://aistro.com/payment-gateway-integration/">Payment gateway integration</a></li>
+<li id="menu-item-87" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-87"><a href="http://aistro.com/shipping-method-integration/">Shipping method integration</a></li>
+<li id="menu-item-78" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78"><a href="http://aistro.com/coupon-and-sale-promotion/">Coupon and sale promotion</a></li>
+<li id="menu-item-79" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-79"><a href="http://aistro.com/customer-management-system/">Customer management system</a></li>
+<li id="menu-item-84" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-84"><a href="http://aistro.com/order-management/">Order management</a></li>
+<li id="menu-item-82" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-82"><a href="http://aistro.com/invoice-management/">Invoice management</a></li>
+<li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-89"><a href="http://aistro.com/stock-management/">Stock management</a></li>
+<li id="menu-item-86" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-86"><a href="http://aistro.com/responsive-design/">Responsive design</a></li>
+<li id="menu-item-90" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-90"><a href="http://aistro.com/store-management-panel/">Store management panel</a></li>
+<li id="menu-item-83" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-83"><a href="http://aistro.com/one-year-free-technical-support/">One year free technical support</a></li>
+</ul></div></div></li>        </ul>
+                </section>
+        
+    </section>
+<footer class="smartlib-footer-area ">
+    <!--Footer sidebar-->
+
+                            <section class="smartlib-content-section smartlib-dark-section smartlib-full-width-section">
+                <div class="container smartlib-footer-sidebar">
+
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-6"><div id="blog_subscription-2" class="smartlib-inside-box panel widget-no-padding smartlib-widget jetpack_subscription_widget"><header class="panel-heading"><h3 class="widget-title smartlib-header-with-decorator">Subscribe to eCommerce blog via Email</h3></header>
+			<form action="#" method="post" accept-charset="utf-8" id="subscribe-blog-blog_subscription-2">
+				<div id="subscribe-text"><p>Enter your email address to subscribe to Aistro E-Commerce blog and receive notifications of new posts by email.</p>
+</div>					<p id="subscribe-email">
+						<label id="jetpack-subscribe-label" for="subscribe-field-blog_subscription-2">
+							Email Address						</label>
+						<input type="email" name="email" required="required" class="required" value="" id="subscribe-field-blog_subscription-2" placeholder="Email Address" />
+					</p>
+
+					<p id="subscribe-submit">
+						<input type="hidden" name="action" value="subscribe" />
+						<input type="hidden" name="source" value="http://aistro.com/user-registration-and-login/" />
+						<input type="hidden" name="sub-type" value="widget" />
+						<input type="hidden" name="redirect_fragment" value="blog_subscription-2" />
+												<input type="submit" value="Subscribe" name="jetpack_subscriptions_widget" />
+					</p>
+							</form>
+
+			<script>
+			/*
+			Custom functionality for safari and IE
+			 */
+			(function( d ) {
+				// Creates placeholders for IE
+				if ( ( 'placeholder' in d.createElement( 'input' ) ) ) {
+					var label = d.getElementById( 'jetpack-subscribe-label' );
+						label.style.clip 	 = 'rect(1px, 1px, 1px, 1px)';
+						label.style.position = 'absolute';
+						label.style.height   = '1px';
+						label.style.width    = '1px';
+						label.style.overflow = 'hidden';
+				}
+
+				// Make sure the email value is filled in before allowing submit
+				var form = d.getElementById('subscribe-blog-blog_subscription-2'),
+					input = d.getElementById('subscribe-field-blog_subscription-2'),
+					handler = function( event ) {
+						if ( '' === input.value ) {
+							input.focus();
+
+							if ( event.preventDefault ){
+								event.preventDefault();
+							}
+
+							return false;
+						}
+					};
+
+				if ( window.addEventListener ) {
+					form.addEventListener( 'submit', handler, false );
+				} else {
+					form.attachEvent( 'onsubmit', handler );
+				}
+			})( document );
+			</script>
+				
+</div></div><div class="col-lg-3 col-sm-6"><div id="text-2" class="smartlib-inside-box panel widget-no-padding smartlib-widget widget_text"><header class="panel-heading"><h3 class="widget-title smartlib-header-with-decorator">QUICK CONTACT</h3></header>			<div class="textwidget">Aistro IT Solution<br/>
+<i class="fa fa-street-view"></i> Dummas road, Piplod, Surat (India)<br/>
+<i class="fa fa-whatsapp"></i> +91 7698 015 280<br/>
+<i class="fa fa-envelope-o"></i>: ravi@aistro.com<br/>
+<i class="fa fa-google"></i>: aistroinc@gmail.com<br/>
+<i class="fa fa-skype"></i>: raviaistro</div>
+		</div></div><div class="col-lg-3 col-sm-6"><div id="pages-2" class="smartlib-inside-box panel widget-no-padding smartlib-widget widget_pages"><header class="panel-heading"><h3 class="widget-title smartlib-header-with-decorator">Pages</h3></header>		<ul>
+			<li class="page_item page-item-21"><a href="http://aistro.com/about-aistro-it-solution/">About</a></li>
+<li class="page_item page-item-15"><a href="http://aistro.com/activity/">Activity</a></li>
+<li class="page_item page-item-25"><a href="http://aistro.com/career/">Career</a></li>
+<li class="page_item page-item-23"><a href="http://aistro.com/contact/">Contact</a></li>
+<li class="page_item page-item-42"><a href="http://aistro.com/">eCommerce web design and development services</a></li>
+<li class="page_item page-item-19"><a href="http://aistro.com/groups/">Groups</a></li>
+<li class="page_item page-item-16"><a href="http://aistro.com/members/">Members</a></li>
+<li class="page_item page-item-27"><a href="http://aistro.com/order-now/">Order now</a></li>
+		</ul>
+		</div></div><div class="col-lg-3 col-sm-6"><div id="tag_cloud-3" class="smartlib-inside-box panel widget-no-padding smartlib-widget widget_tag_cloud"><header class="panel-heading"><h3 class="widget-title smartlib-header-with-decorator">Tags</h3></header><div class="tagcloud"><a href='http://aistro.com/tag/coupon-and-sale/' class='tag-link-16' title='1 topic' style='font-size: 8pt;'>coupon and sale</a>
+<a href='http://aistro.com/tag/customer-management-in-ecommerce/' class='tag-link-19' title='1 topic' style='font-size: 8pt;'>customer management in eCommerce</a>
+<a href='http://aistro.com/tag/free-domain/' class='tag-link-7' title='1 topic' style='font-size: 8pt;'>free domain</a>
+<a href='http://aistro.com/tag/free-ssl/' class='tag-link-11' title='1 topic' style='font-size: 8pt;'>free ssl</a>
+<a href='http://aistro.com/tag/free-technical-support/' class='tag-link-24' title='1 topic' style='font-size: 8pt;'>free technical support</a>
+<a href='http://aistro.com/tag/invoice-management/' class='tag-link-21' title='1 topic' style='font-size: 8pt;'>invoice management</a>
+<a href='http://aistro.com/tag/login-function/' class='tag-link-14' title='1 topic' style='font-size: 8pt;'>login function</a>
+<a href='http://aistro.com/tag/order-management/' class='tag-link-20' title='1 topic' style='font-size: 8pt;'>order management</a>
+<a href='http://aistro.com/tag/payment-gateway/' class='tag-link-18' title='1 topic' style='font-size: 8pt;'>payment gateway</a>
+<a href='http://aistro.com/tag/responsive-website-design/' class='tag-link-12' title='1 topic' style='font-size: 8pt;'>responsive website design</a>
+<a href='http://aistro.com/tag/shipping-method/' class='tag-link-15' title='1 topic' style='font-size: 8pt;'>shipping method</a>
+<a href='http://aistro.com/tag/shop-and-store-management-panel/' class='tag-link-23' title='1 topic' style='font-size: 8pt;'>shop and store management panel</a>
+<a href='http://aistro.com/tag/shopping-cart-integration/' class='tag-link-17' title='1 topic' style='font-size: 8pt;'>shopping cart integration</a>
+<a href='http://aistro.com/tag/stock-management/' class='tag-link-22' title='1 topic' style='font-size: 8pt;'>stock management</a>
+<a href='http://aistro.com/tag/unlimited-hosting-space/' class='tag-link-9' title='1 topic' style='font-size: 8pt;'>unlimited hosting space</a>
+<a href='http://aistro.com/tag/unlimited-space/' class='tag-link-8' title='1 topic' style='font-size: 8pt;'>unlimited space</a>
+<a href='http://aistro.com/tag/unlimited-traffic/' class='tag-link-10' title='1 topic' style='font-size: 8pt;'>unlimited traffic</a>
+<a href='http://aistro.com/tag/user-registration/' class='tag-link-13' title='1 topic' style='font-size: 8pt;'>user registration</a></div>
+</div></div>                    </div>
+                </div>
+            </section>
+        
+    <!--END Footer sidebar-->
+    <!--Footer bottom - customizer-->
+    <section class="smartlib-content-section smartlib-bottom-footer">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-6">
+                    <p>Aistro IT Solution | eCommerce web design and development center. All rights reserved.</p>
+                </div>
+                <div class="col-lg-6">
+                                <ul class="list-inline  smartlib-social-icons-navbar pull-right">
+
+                
+
+            </ul>
+                        </div>
+            </div>
+        </div>
+    </section>
+    <!--END Footer bottom - customizer-->
+</footer>
+
+            <a href="#" class="btn btn-primary smartlib-btn-go-top animated" id="scroll-top-top"><i
+                    class="fa fa-chevron-up"></i></a>
+        
+<!-- Generated in 0.691 seconds. (82 q) -->
+
+		<div style="display:none">
+	</div>
+        <div id="fb-root"></div>
+        <script>(function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=252087941485995";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+            <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
+            <script>!function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                if (!d.getElementById(id)) {
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = p + '://platform.twitter.com/widgets.js';
+                    fjs.parentNode.insertBefore(js, fjs);
+                }
+            }(document, 'script', 'twitter-wjs');</script>
+<script type='text/javascript' src='http://aistro.com/wp-content/themes/bootframe-core/assets/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='http://aistro.com/wp-content/themes/bootframe-core/assets/js/classie.js'></script>
+<script type='text/javascript' src='http://aistro.com/wp-content/themes/bootframe-core/assets/js/cbpAnimatedHeader.min.js'></script>
+<script type='text/javascript' src='http://aistro.com/wp-content/themes/bootframe-core/assets/vendor/modernizr.custom.09812.js'></script>
+<script type='text/javascript' src='http://aistro.com/wp-content/themes/bootframe-core/assets/js/jquery.waypoints.min.js'></script>
+<script type='text/javascript' src='http://aistro.com/wp-content/themes/bootframe-core/assets/js/jquery.countTo.js'></script>
+<script type='text/javascript' src='http://aistro.com/wp-content/themes/bootframe-core/assets/vendor/jquery.shuffle.js'></script>
+<script type='text/javascript' src='http://aistro.com/wp-content/themes/bootframe-core/assets/js/main.js'></script>
+<script type='text/javascript' src='http://aistro.com/wp-content/plugins/jetpack/modules/photon/photon.js?ver=20130122'></script>
+<script type='text/javascript' src='http://aistro.com/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"http:\/\/aistro.com\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","recaptchaEmpty":"Please verify that you are not a robot.","sending":"Sending ..."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://aistro.com/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=4.3.1'></script>
+<script type='text/javascript' src='http://aistro.com/wp-content/plugins/smartlib-tools/assets/main-smart-tools.js?ver=0.1'></script>
+<script type='text/javascript' src='http://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201619'></script>
+<script type='text/javascript' src='http://s.gravatar.com/js/gprofiles.js?ver=2016Mayaa'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://aistro.com/wp-content/plugins/jetpack/modules/wpgroho.js?ver=4.4.3'></script>
+<script type='text/javascript' src='http://aistro.com/wp-includes/js/wp-embed.min.js?ver=4.4.3'></script>
+<script type='text/javascript' src='http://stats.wp.com/e-201619.js' async defer></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:3.8.2',blog:'96280852',post:'55',tz:'5.5',srv:'aistro.com'} ]);
+	_stq.push([ 'clickTrackerInit', '96280852', '55' ]);
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-60473568-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

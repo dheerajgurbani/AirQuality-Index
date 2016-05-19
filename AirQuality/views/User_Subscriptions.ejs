@@ -1,0 +1,909 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ 
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/css/bootstrap2/bootstrap-switch.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/js/bootstrap-switch.js"></script>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/css/bootstrap2/bootstrap-switch.css" rel="stylesheet">
+
+   
+      <style type="text/css">
+      #bootstrap-switch{
+        height: 30px;
+        width: 30px;
+        
+      }
+      </style>
+
+
+  
+
+
+
+
+<title>Vendor</title>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+ <script src="http://maps.googleapis.com/maps/api/js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+ <script>
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+/*  function OnChangeCheckbox (checkbox) {
+	 
+	 var c=document.getElementById('').value;
+     alert("c:"+c)
+	 
+     if (document.getElementById(checkbox).checked) {
+         alert ("The check box is checked.");
+    
+     
+     }
+     else {
+         alert ("The check box is not checked.");
+     }
+ } */
+ 
+ function deleteSensor (e) {
+	 alert('fff'+e);
+	 
+	// alert("id is "+e.attr('id'));
+          var data1={"e1":e};
+         alert ("delete button  is checked.");
+         $.ajax({
+        	 type: "POST",
+        	 url: "/deleteSensor",
+        	 data:data1,
+        	 dataType: 'json',
+        	 success: function(res){
+        	 console.log("in rtkook");
+        	 //window.location = "user.js";
+              alert('byebye');
+        	 window.location.assign('/getusers');
+        	 }
+        	 }); 
+     
+   
+    
+ }
+
+
+
+</script>
+
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXnffF7ylILywQ59fUIYcfCntsrMNMIcg&callback=initMap"
+    async defer></script>
+
+
+	<style>
+  <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      #bootstrap-switch{
+        height: 50px;
+        width: 50px;
+      }
+
+      html, body {
+        height: 100%;
+        
+        padding: 0;
+      }
+
+
+/* table {
+    border-collapse: collapse;
+}
+
+ table, th, td {
+    border: 2px solid black;
+    padding: 10px;
+    color : black ;
+
+} */
+ 
+/* 
+      #map {
+        height: 50%;
+        
+        width: 50%;
+        position: static;
+        left:250px;
+        top:250px;
+      } */
+
+
+		body {
+  margin: 0;
+  padding: 0;
+  font-family: 'roboto', arial, helvetica, sans-serif;
+  color: #007FFF;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.3em;
+}
+* {
+  box-sizing: border-box;
+}
+.clear:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+p {
+  margin: 0;
+}
+p + p {
+  margin-top: .5em;
+}
+.wrapper {
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 1em;
+}
+.wrapper:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 300;
+}
+.main a {
+  border-bottom: 1px dotted;
+}
+.main a:hover {
+  border: transparent;
+}
+.three-col:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+@media (min-width: 768px) {
+  .three-col > * {
+    width: 33.333%;
+    float: left;
+  }
+}
+.button {
+  display: inline-block;
+  background: #c76d5b;
+  color: white;
+  padding: 1em 1.25em;
+  text-transform: uppercase;
+  font-weight: normal;
+  cursor: pointer;
+}
+.button:hover {
+  background: #341d34;
+}
+h1 {
+  font-size: 36px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 20px;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-weight: normal;
+  font-family: 'roboto condensed';
+  line-height: 1em;
+}
+.page-title {
+  float: left;
+  padding: 0 2em;
+}
+.page-title h1 {
+  margin: 15px 0 0px;
+}
+.page-title .breadcrumbs {
+  font-size: 14px;
+}
+.page-title .breadcrumbs > * {
+  opacity: .5;
+}
+.page-title .breadcrumbs > *:last-child {
+  opacity: .75;
+}
+.logo {
+  border-left: 10px #007FFF solid;
+  border-right: 1px #007FFF solid;
+  background: #ffffff;
+  width: 220px;
+  float: left;
+  padding: 1em;
+}
+@media (min-width: 768px) {
+  .user-panel {
+    float: right;
+    margin-top: 15px;
+  }
+  .user-panel a {
+    margin-left: 1em;
+  }
+}
+.user-panel a {
+  text-transform: uppercase;
+}
+.user-panel .accedi,
+.user-panel .portafogli,
+.user-panel .guida {
+  display: inline-block;
+  color: black;
+  margin: 0 5px;
+}
+.user-panel .accedi .icon,
+.user-panel .portafogli .icon,
+.user-panel .guida .icon {
+  background: url(http://i64.tinypic.com/25sc2s1.png) no-repeat;
+  width: 40px;
+  height: 40px;
+  margin: auto;
+}
+.user-panel .accedi:hover,
+.user-panel .portafogli:hover,
+.user-panel .guida:hover {
+  opacity: .7;
+}
+.user-panel .portafogli .icon {
+  background-position: left top;
+}
+.user-panel .accedi .icon {
+  background-position: center top;
+}
+.user-panel .guida .icon {
+  background-position: right top;
+}
+@media (max-width: 767px) {
+  .user-panel {
+    padding: 5px 0 10px;
+    margin: auto;
+    text-align: center;
+  }
+}
+.main {
+  max-width: 600px;
+  padding: 1px 2em 2em 2em;
+  position: relative;
+  margin-left: 220px;
+}
+.main label {
+  font-weight: normal;
+  margin-left: .5em;
+}
+.main .option-block {
+  margin-top: 1em;
+  line-height: 1em;
+}
+.action-panel {
+  position: absolute;
+  top: -70px;
+  right: 0;
+  z-index: 1;
+}
+.action-panel .action {
+  margin: .5em;
+  width: 25px;
+  height: 25px;
+  font-size: 32px;
+  line-height: 25px;
+  display: inline-block;
+  cursor: pointer;
+}
+.action-panel .action.add {
+  background-position: left center;
+}
+.action-panel .action.edit {
+  background-position: center;
+}
+.action-panel .action.delete:hover {
+  color: #c00;
+}
+.action-panel .action:Hover {
+  opacity: .75;
+}
+.action-panel .action:active {
+  transform: scale(1.2);
+}
+aside {
+  border-left: 10px #007FFF solid;
+  border-right: 1px #007FFF solid;
+  background: #ffffff;
+  width: 220px;
+  min-height: 650px;
+  float: left;
+}
+aside .main-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+aside .main-menu .icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+aside .main-menu a {
+  padding: 1em;
+  display: block;
+  text-decoration: none;
+  border-bottom: none;
+  position: relative;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+aside .main-menu a.active,
+aside .main-menu a:hover {
+  background: #007FFF;
+  color: white;
+  text-decoration: none;
+}
+aside .main-menu a.active:after {
+  width: 0;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 33%;
+  right: 0px;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid white;
+}
+
+@media (min-width: 768px) {
+  .footer .three-col > *:nth-child(1),
+  .footer .three-col > *:nth-child(3) {
+    width: 25%;
+  }
+  .footer .three-col > *:nth-child(2) {
+    width: 50%;
+  }
+}
+
+
+/* for modal
+ */
+ /* The Modal (background) */
+.modal {
+   display: none; /* Hidden by default */
+   position: fixed; /* Stay in place */
+   z-index: 1; /* Sit on top */
+   padding-top: 100px; /* Location of the box */
+   left: 0;
+   top: 0;
+   width: 100%; /* Full width */
+   height: 100%; /* Full height */
+   overflow: auto; /* Enable scroll if needed */
+   background-color: rgb(0,0,0); /* Fallback color */
+   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+   background-color: #fefefe;
+   margin: auto;
+   padding: 20px;
+   border: 1px solid #888;
+   width: 80%;
+}
+
+/* The Close Button */
+.close {
+   color: #aaaaaa;
+   float: right;
+   font-size: 28px;
+   font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+   color: #000;
+   text-decoration: none;
+   cursor: pointer;
+}
+
+
+
+
+	</style>
+  
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>MyAQI</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/sb-admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="/css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <font color="#FFA62F">MyAQI</font>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+               
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> User <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      
+                        <li>
+                            <a href="/UserLogOut"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="/User_Dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="/User_AirQualityOverview"><i class="fa fa-fw fa-bar-chart-o"></i>Air Quality Overview</a>
+                    </li>
+                    <li class="active">
+                        <a href="/User_Subscriptions"><i class="fa fa-fw fa-table"></i> My Subscriptions</a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            My Subscriptions 
+                        </h1>
+                       
+                    </div>
+                </div>
+                <!-- /.row -->
+                 <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-tasks fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div>Dashboard</div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="/User_Dashboard">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-comments fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div>Air Quality Overview</div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="/User_AirQualityOverview">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                  
+                    
+                    
+
+                
+		</div>
+		
+		
+	</section>
+	<section>
+    <div class="action-panel">
+      <span class="action add ion-plus"></span>
+      <span class="action edit ion-edit"></span>
+      <span class="action delete ion-trash-a"></span>
+    </div>
+
+    
+
+<table id="myTable" class="table" >
+  <tr>
+  
+    <th >Sensor id</th>
+    <th  >Sensor type</th>
+<th >Air Quality Index</th>
+<th >counter views</th>
+<th >Sensor Location</th>
+<th >Refresh Data</th>
+<th >Sensor Status</th>
+
+
+  </tr>
+</table>
+
+
+   
+  </section>
+</section>
+
+
+<div id="modal" class="modal">
+	<div class="modal-content">
+	<span class="close">x</span>
+		<p id="display_bill">hello</p>
+	</div>
+</div>
+
+
+ <script>
+ var id=[];
+ var st=[];
+ var b=[];
+ var c=[];
+ var type=[];
+ var location1=[];
+ var readings1=[];
+
+ id.push(<%= id %>)
+ b.push(<%= b %>);
+ c.push(<%= c %>);
+
+ 
+ 
+alert(st);
+ alert(b);
+ alert(c);
+
+ readings1.push(<%= readings %>);
+ 
+ 
+ <% for(var i=0; i<(location).length; i++) {%>
+ location1.push("<%= location[i]%>");
+ st.push(<%= st[i] %>);
+
+ type.push("<%= type[i] %>");
+
+
+ <% } %>
+
+ alert(location1);
+ alert(readings1);
+ alert(type);
+
+
+     
+  for(z=0;z<id.length;z++){
+    
+
+	  
+	
+
+
+	  var table1 = document.getElementById('myTable');
+	   var row = table1.insertRow(1);
+	   var cell1 = row.insertCell(0);
+	   var cell2 = row.insertCell(1);
+	      var cell3 = row.insertCell(2);
+	         var cell4 = row.insertCell(3);
+	         var cell5=row.insertCell(4);
+	         
+	   var cell6=row.insertCell(5);
+	   var cell7=row.insertCell(6);
+	   
+	   
+	   alert("st ka value"+st[z]);
+	   if(st[z]==1)
+		cell7.innerHTML = '<input type="checkbox" onclick="OnChangeCheckbox('+id[z]+')"  id="rtk" name="my-checkbox" checked />';
+		else
+			cell7.innerHTML = '<input type="checkbox" onclick="OnChangeCheckbox('+id[z]+')"  id="rtk" name="my-checkbox" />';
+			
+		var cell8=row.insertCell(7);
+	 
+	
+
+ cell1.innerHTML =id[z]+"" ;
+
+ cell2.innerHTML =type[z]+""; 
+ cell3.innerHTML=readings1[z]+"";
+cell4.innerHTML =c[z]+"";
+cell5.innerHTML =location1[z]+"";
+
+
+
+
+cell6.innerHTML = '<input type="submit" name=' + id[z]
++ '  value= "Refresh Data" id='
++ id[z] + '  onclick="refreshData('+id[z]+')"></input>';
+cell8.innerHTML = '<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" name=' + id[z]
++ '  value= "View Bill" id='
++ id[z] + '  onclick="viewBill('+id[z]+')">View Bill</button>';
+   }     
+    </script>
+    
+    <script>
+    var c;
+    function OnChangeCheckbox(checkbox1) {
+    	 c=document.getElementById("rtk").checked;
+    	alert(c+"c");
+    	 
+    		var data1={"sensor_id":checkbox1,"sensor_status":c};
+    		alert("The check box is not checked."+checkbox1);
+    		$.ajax({
+    			type : "POST",
+    			url : "/updateEndTime",
+    			data : data1,
+    			dataType : 'json',
+    			success : function(res) {
+    				console.log("in rtkook");
+    				//window.location = "user.js";
+    				//alert('byebye');
+    				window.location.assign('/myAllSensors');
+    			}
+    		});
+    	}
+    
+    
+    
+    
+    
+    
+    
+    
+    function refreshData(e) {
+    	
+    	var index=0;
+        for (index=0;index<location1.length;index++){
+       	if(id[index]==e)
+       		{
+       		//alert(location1[index])
+       		break;
+       		}
+
+        }
+        alert(st[index]+"hahaha");
+    	  
+    	if(st[index]==0){
+    		alert('bhai baap ka maal hai kya');
+    	$(this).off("click");
+    	}    	
+    	
+    	else{
+	alert("ee"+e);
+	
+	var	e1=id[e]
+		alert('fff' + e1);
+		alert('location is '+location1[e]);
+		
+		// alert("id is "+e.attr('id'));
+		
+	
+		
+		//for getting lat and long
+		
+			$.ajax({
+			type : "POST",
+			url : "/latlong",
+			data : {"sensor_id" : e},
+			dataType : 'json',
+			success : function(res) {
+			/* 	alert("latlong"+JSON.stringify(res.result));
+				console.log("in refresh"+res); */
+			
+				var lat1=JSON.stringify(res.lat1);
+				var lng1=JSON.stringify(res.long1);
+			
+				lat1=lat1.replace(/["']/g, "");
+				lng1=lng1.replace(/["']/g, "");
+				alert("lat is:"+lat1);
+				alert("long is:"+lng1);
+				
+				
+	$.get( "https://api.breezometer.com/baqi/?lat="+lat1+"&lon="+lng1+"&key=89dd912e381d4fb797763ae7882c6230",
+ function( data2 ) {
+			alert("this aqi:"+data2.breezometer_aqi);
+ alert( JSON.stringify(data2.breezometer_description));
+  alert("hello bhai"+JSON.stringify(data2));
+		var data1 = {
+			"sensor_id" : e,
+			"breezometer_aqi": data2.breezometer_aqi,
+			"breezometer_description" : data2.breezometer_description,
+		};
+	
+ 		
+		alert("refresh button is checked.");
+ 		$.ajax({
+			type : "POST",
+			url : "/refreshData",
+			data : data1,
+			dataType : 'json',
+			success : function(res) {
+				console.log("in refresh");
+				alert('byebye');
+				window.location.assign('/myAllSensors');
+ 		}
+		
+		}); 
+		
+	
+		});
+		
+			}});
+			
+			}
+				
+	}
+
+
+function viewBill(e) {
+	alert("ee"+e);
+	
+	var index=0;
+    for (index=0;index<location1.length;index++){
+   	if(id[index]==e)
+   		{
+   		alert(location1[index])
+   		break;
+   		}
+
+    }
+	
+				var bill;
+			 $.ajax({
+			type : "POST",
+			url : "/viewBill",
+			data : {"sensor_id" : e},
+			dataType : 'json',
+			success : function(res) {
+				bill=JSON.stringify(res.result);
+				alert("res Dheeraj:"+JSON.stringify(res.result));
+				alert(bill);
+				
+				alert("bill amount:"+JSON.stringify(res.bill_amount1));
+				
+				alert("bill amount from result:"+JSON.stringify(res.result.bill_amount));
+				
+				 
+				 var disp=document.getElementById("display_bill");
+				 //disp.innerHTML="hello";]]
+				 
+				 	disp.innerHTML="<h2 align='center'><b>BILL DETAILS<h2>";
+				 	
+				 	disp.innerHTML+="<b>Rate: $0.10/sec &nbsp;&nbsp;&nbsp; $2/View Count<br>";
+				 	
+				 	
+					
+					disp.innerHTML+="<b>Your Duration:";
+					disp.innerHTML+="<b>"+res.sensor_duration1;
+					disp.innerHTML+="<b>  sec";
+					
+
+				 	disp.innerHTML+="<b>&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>Your bill is:";
+					disp.innerHTML+="<b><font color='red'>"+res.bill_amount1+"</font>";
+					
+					alert("innerHTML:"+disp.innerHTML);
+					modal.style.display="block";
+				
+				}
+			 })
+			 
+		
+
+			 
+}
+			 window.onclick = function(event) {
+				   if (event.target == modal) {
+				       modal.style.display = "none";
+				   }
+				}
+
+
+</script>
+                
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+</body>
+
+</html>

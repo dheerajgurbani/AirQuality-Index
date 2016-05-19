@@ -1,0 +1,89 @@
+<html>
+<head>
+</head>
+<body>
+
+<form method="post" action="vendor_revenue">
+<input type="submit" value = "vendor revenue">
+
+</form>
+
+<form method="post" action="vendor_sensors">
+<input type="submit" value = "No of Sensors Each Vendor Have">
+
+</form>
+
+<form method="post" action="Admin_vendor">
+<input type="submit" value="Admin_vendor"/>
+
+</form>
+
+
+<form method="post" action="AdminSensor">
+<input type="submit" value="Admin Sensor"/>
+
+</form>
+
+<form method="post" action="morrisDatabase">
+<input type="submit" value="mmorrisgraph"/>
+
+</form>
+
+<form method="post" action="vendor_sensor_viewcount">
+<input type="submit" value="vendor_sensor_viewcount"/>
+
+</form>
+
+</form>
+
+
+<form method="post" action="viewCount">
+<input type="submit" value="viewcount"/>
+
+</form>
+
+<form method="get" action="hiechar2">
+<input type="submit" value="Vendor-Sensor_Revenue"/>
+
+</form>
+
+
+<form action="getvalue">
+<div class="form-group" style="color:black;">
+                                       User: <input type="radio" name="Type" value="user" class="settings_gender" >
+                                       Vendor: <input  type="radio" name="Type" value="vendor" class="settings_gender">
+                                       Admin: <input  type="radio" name="Type" value="admin" class="settings_gender">
+                                    
+                                       
+                                       <input type="submit" value="click"/>
+                                   </div>
+</form>
+
+</body>
+
+<script type="text/javascript">
+function click (e) {
+	 alert('fff'+e);
+	 
+	// alert("id is "+e.attr('id'));
+         var data1={"e1":e};
+        alert ("delete button  is checked.");
+        $.ajax({
+       	 type: "POST",
+       	 url: "/deleteSensor",
+       	 data:data1,
+       	 dataType: 'json',
+       	 success: function(res){
+       	 console.log("in rtkook");
+       	 //window.location = "user.js";
+             alert('byebye');
+       	 window.location.assign('/getusers');
+       	 }
+       	 }); 
+    
+  
+   
+}
+
+</script>
+</html>

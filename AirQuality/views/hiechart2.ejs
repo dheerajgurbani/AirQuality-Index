@@ -1,0 +1,65 @@
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+</head>
+<body>
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<h1><%= data[0].ViewCount %></h1>
+</body>
+
+
+<script type="text/javascript">
+var totalquery=[];
+
+var tag=[];
+var username = [];
+
+var viewcount =[];
+
+ <% for (var d=0;d<data.length;d++){%>
+ totalquery.push('<%= data[d].sensor_type %>');
+ tag.push(<%= data[d].bill_amount %>);
+ username.push("<%= data[d].username %>");
+ viewcount.push(<%= data[d].ViewCount %>);
+/*  tag.push("C#");
+ tag.push("C#");
+ tag.push("C#");
+ tag.push("C#");
+ tag.push("C#");
+ tag.push("C#");
+ tag.push("C#");
+ tag.push("C#");
+ tag.push("C#");
+ tag.push("C#"); */
+
+
+ <%}%>
+
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'area'
+        },
+        title: {
+            text: 'Area chart with negative values'
+        },
+        xAxis: {
+            categories: totalquery
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'Vendor1',
+            data: tag
+        }]
+    });
+});
+
+</script>
+
+
+</html>

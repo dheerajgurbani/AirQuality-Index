@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ 
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/css/bootstrap2/bootstrap-switch.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/js/bootstrap-switch.js"></script>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/css/bootstrap2/bootstrap-switch.css" rel="stylesheet">
+
+   
+      <style type="text/css">
+      #bootstrap-switch{
+        height: 30px;
+        width: 30px;
+        
+      }
+      </style>
+  <script>
+
+  
+  /* $( document ).ready(function() {
+   $("[name='my-checkbox']").bootstrapSwitch();
+}) */;
+    
+  </script>
+<!-- Optional theme -->
+
+<!-- Latest compiled and minified JavaScript -->
+
+
+
+<title>MyAQI</title>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+ <script src="http://maps.googleapis.com/maps/api/js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+ <script>
+
+
+
+$(document).ready(function(){
+    $("#hide").click(function(){
+        $("#googleMap").hide();
+    });
+    $("#show").click(function(){
+        $("#googleMap").show();
+    });
+});
+</script>
+
+
+ <script>
+      var map;
+      function initMap() {
+      
+         var myLatLng = {lat: 37.3382, lng: 121.8863};
+        map = new google.maps.Map(document.getElementById('googleMap'), {
+          center: {lat: 37.3382, lng: -121.8863},
+          zoom: 8
+        });
+var marker = new google.maps.Marker({
+    position: {lat: 37.3382, lng: -121.8863},
+    map: map,
+    draggable:true,
+  icon:'http://findicons.com/files/icons/1224/epcot_network_nodes/128/the_universe_of_energy.png',
+    title:"Drag me!"
+});
+
+google.maps.event.addListener(marker, 'dragend', function (event) {
+
+ // alert(this.getPosition().lat());  
+   x=this.getPosition().lat();
+   y=this.getPosition().lng()
+
+
+
+
+    //document.getElementById("lngbox").value = this.getPosition().lng();
+
+
+$.get( "http://maps.googleapis.com/maps/api/geocode/json?latlng="+x+","+y+"&sensor=true",
+ function( data ) {
+ // alert( JSON.stringify(data.breezometer_description));
+  //alert(x);
+  //alert(y);
+ // alert( JSON.stringify(data.results[0].formatted_address));
+  var z=JSON.stringify(data.results[0].formatted_address);
+
+
+$.get( "https://api.breezometer.com/baqi/?location="+z+"&key=89dd912e381d4fb797763ae7882c6230",
+ function( data1 ) {
+  //alert( JSON.stringify(data1));
+ // alert( JSON.stringify(data.breezometer_description));
+  
+  //alert( JSON.stringify(data.random_recommendations.children));
+//   document.getElementById("a").innerHTML = "<b>AIR Quality is : </b>"+data.breezometer_description;
+
+//     document.getElementById("c").innerHTML ="<b>AIR AQI is </b>" + data.breezometer_aqi;
+// document.getElementById("b").innerHTML = "<b>Feedback </b>" + data.random_recommendations.outside;
+
+
+
+
+
+
+
+
+
+   var table = document.getElementById("myTable");
+    var row = table.insertRow(1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+       var cell3 = row.insertCell(2);
+          var cell4 = row.insertCell(3);
+          var cell5=row.insertCell(4);
+    var cell6=row.insertCell(5);
+    var sensorid= Math.floor(Math.random() * 9999) + 1000 
+    cell1.innerHTML =sensorid ;
+    
+    
+if(Math.floor(Math.random() * 2) + 1==1)
+
+    cell2.innerHTML = "SPECK Sensor ";
+
+
+  else
+cell2.innerHTML = "Air Quality Egg";
+
+cell5.innerHTML =Date()+"";
+
+cell6.innerHTML='<input type="checkbox" id="bootstrap-switch" name="my-checkbox" checked>';
+
+alert(z);
+
+
+var z2 = z.replace(/"/g, "");
+var z3=z2.replace(/\s/g, "");
+
+//var z1 = z3.replace(/,/g , ""); 
+var z1=z3;
+
+alert("dhsdjhvg   "+z3);
+
+
+
+
+
+alert(z1.toString("utf8"));
+
+//alert(data1.breezometer_aqi);
+   cell3.innerHTML = data1.breezometer_aqi;
+    cell4.innerHTML = z;
+    var abc='Ruchfuh';
+   var data1={ "sensor_id":sensorid,
+		   		"sensor_location":z1.toString("utf8"),
+		   		"sensor_date":Date()+"",
+		   		
+		   		
+		   		"sensor_start":Date()+"",
+		   		"sensor_end":"",	
+		   		"sensor_duration":2	,
+		   		"sensor_active":"yes",
+		   		"sensor_vendor_id":"1",
+		   		"sensor_reading":data1.breezometer_aqi,
+		   		"sensor_type":"gaowale",
+		   		"lat":x,
+		   		"lng":y	
+		   };
+$.ajax({
+type: "POST",
+url: "/users",
+data : data1,
+dataType: 'json',
+success: function(res){
+console.log("in ajaxfcfhdhkgdkghkdkghgkdh");
+//window.location = "user.js";
+
+window.location.assign('/getusers');
+}
+});
+  //document.getElementById("a").innerHTML = "<b>AIR Quality is : </b>"+data.breezometer_description;
+
+  //  document.getElementById("c").innerHTML ="<b>AIR AQI is </b>" + data.breezometer_aqi;
+//document.getElementById("b").innerHTML = "<b>Feedback </b>" + data.random_recommendations.outside;
+
+});
+    }
+    );
+});
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXnffF7ylILywQ59fUIYcfCntsrMNMIcg&callback=initMap"
+    async defer></script>
+
+
+
+   
+	<style>
+  <title>MyAQI</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      #bootstrap-switch{
+        height: 50px;
+        width: 50px;
+      }
+
+      html, body {
+        height: 100%;
+        
+        padding: 0;
+      }
+
+
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding: 10px;
+    border-style: solid;
+    border-width: 5px;
+
+}
+
+
+
+      #map {
+        height: 50%;
+        width: 50%;
+        position: static;
+        left:250px;
+        top:250px;
+      }
+
+
+		body {
+  margin: 0;
+  padding: 0;
+  font-family: 'roboto', arial, helvetica, sans-serif;
+  color: #007FFF;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.3em;
+}
+* {
+  box-sizing: border-box;
+}
+.clear:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+p {
+  margin: 0;
+}
+p + p {
+  margin-top: .5em;
+}
+.wrapper {
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 1em;
+}
+.wrapper:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 300;
+}
+.main a {
+  border-bottom: 1px dotted;
+}
+.main a:hover {
+  border: transparent;
+}
+.three-col:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+@media (min-width: 768px) {
+  .three-col > * {
+    width: 33.333%;
+    float: left;
+  }
+}
+.button {
+  display: inline-block;
+  background: #c76d5b;
+  color: white;
+  padding: 1em 1.25em;
+  text-transform: uppercase;
+  font-weight: normal;
+  cursor: pointer;
+}
+.button:hover {
+  background: #341d34;
+}
+h1 {
+  font-size: 36px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 20px;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-weight: normal;
+  font-family: 'roboto condensed';
+  line-height: 1em;
+}
+.page-title {
+  float: left;
+  padding: 0 2em;
+}
+.page-title h1 {
+  margin: 15px 0 0px;
+}
+.page-title .breadcrumbs {
+  font-size: 14px;
+}
+.page-title .breadcrumbs > * {
+  opacity: .5;
+}
+.page-title .breadcrumbs > *:last-child {
+  opacity: .75;
+}
+.logo {
+  border-left: 10px #007FFF solid;
+  border-right: 1px #007FFF solid;
+  background: #ffffff;
+  width: 220px;
+  float: left;
+  padding: 1em;
+}
+@media (min-width: 768px) {
+  .user-panel {
+    float: right;
+    margin-top: 15px;
+  }
+  .user-panel a {
+    margin-left: 1em;
+  }
+}
+.user-panel a {
+  text-transform: uppercase;
+}
+.user-panel .accedi,
+.user-panel .portafogli,
+.user-panel .guida {
+  display: inline-block;
+  color: black;
+  margin: 0 5px;
+}
+.user-panel .accedi .icon,
+.user-panel .portafogli .icon,
+.user-panel .guida .icon {
+  background: url(http://i64.tinypic.com/25sc2s1.png) no-repeat;
+  width: 40px;
+  height: 40px;
+  margin: auto;
+}
+.user-panel .accedi:hover,
+.user-panel .portafogli:hover,
+.user-panel .guida:hover {
+  opacity: .7;
+}
+.user-panel .portafogli .icon {
+  background-position: left top;
+}
+.user-panel .accedi .icon {
+  background-position: center top;
+}
+.user-panel .guida .icon {
+  background-position: right top;
+}
+@media (max-width: 767px) {
+  .user-panel {
+    padding: 5px 0 10px;
+    margin: auto;
+    text-align: center;
+  }
+}
+.main {
+  max-width: 600px;
+  padding: 1px 2em 2em 2em;
+  position: relative;
+  margin-left: 220px;
+}
+.main label {
+  font-weight: normal;
+  margin-left: .5em;
+}
+.main .option-block {
+  margin-top: 1em;
+  line-height: 1em;
+}
+.action-panel {
+  position: absolute;
+  top: -70px;
+  right: 0;
+  z-index: 1;
+}
+.action-panel .action {
+  margin: .5em;
+  width: 25px;
+  height: 25px;
+  font-size: 32px;
+  line-height: 25px;
+  display: inline-block;
+  cursor: pointer;
+}
+.action-panel .action.add {
+  background-position: left center;
+}
+.action-panel .action.edit {
+  background-position: center;
+}
+.action-panel .action.delete:hover {
+  color: #c00;
+}
+.action-panel .action:Hover {
+  opacity: .75;
+}
+.action-panel .action:active {
+  transform: scale(1.2);
+}
+aside {
+  border-left: 10px #007FFF solid;
+  border-right: 1px #007FFF solid;
+  background: #ffffff;
+  width: 220px;
+  min-height: 650px;
+  float: left;
+}
+aside .main-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+aside .main-menu .icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+aside .main-menu a {
+  padding: 1em;
+  display: block;
+  text-decoration: none;
+  border-bottom: none;
+  position: relative;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+aside .main-menu a.active,
+aside .main-menu a:hover {
+  background: #007FFF;
+  color: white;
+  text-decoration: none;
+}
+aside .main-menu a.active:after {
+  width: 0;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 33%;
+  right: 0px;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid white;
+}
+
+@media (min-width: 768px) {
+  .footer .three-col > *:nth-child(1),
+  .footer .three-col > *:nth-child(3) {
+    width: 25%;
+  }
+  .footer .three-col > *:nth-child(2) {
+    width: 50%;
+  }
+}
+	</style>
+
+</head>
+<body>
+
+  
+  
+
+	<section class="top clear">
+  <div class="logo">
+    <center><img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/700118-icon-20-clouds-128.png" width="50" /></center>
+  </div>
+  <div class="page-title">
+    <h1>Vendord Dashboard</h1>
+
+  </div>
+</section>
+<section class="clear">
+  <aside>
+    <nav class="main-menu">
+
+      <ul>
+        <li><a href="#" ><span class="icon ion-heart"></span>Vendor Profile</a></li>
+        <li><a href="#" ><span class="icon ion-android-star"></span>Statistics</a></li>
+        <li><a href="/mysensors" ><span class="icon ion-android-star"></span>my  Sensor</a></li>
+        <li><a href="#" class="active"><span class="icon ion-person-stalker"></span>Add a Sensor</a></li>
+        <li><a href="#"><span class="icon ion-email"></span>Billing Overview</a></li>
+ 
+      </ul>
+    </nav>
+  </aside>
+  <section class="main">
+    <div class="action-panel">
+      <span class="action add ion-plus"></span>
+      <span class="action edit ion-edit"></span>
+      <span class="action delete ion-trash-a"></span>
+    </div>
+    <div style="width: 1000px;height: 615px;">
+         <hr>
+    <div>
+      <strong>Add a Sensor</strong>
+    
+
+    </div>
+    <button id="hide">Hide Map</button>
+<button id="show">Show Map</button>
+    <div id="googleMap" style="width:500px;height:380px;"></div>
+    <hr>
+    
+      <div>
+		
+		<div class="dropdown open">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>
+		
+		
+
+      </div>
+    
+    </div>
+    <div>
+<table id="myTable">
+  <tr>
+    
+    <th>Sensor id</th>
+    <th>Sensor type</th>
+<th>Sensor Reading</th>
+<th>Sensor Location</th>
+<th>Created at</th>
+<th>Sensor Status</th>
+
+  </tr>
+</table>
+
+    </div>
+   
+  </section>
+</section>
+</body>
+</html>

@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="http://maps.googleapis.com/maps/api/js">
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ 
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/css/bootstrap2/bootstrap-switch.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/js/bootstrap-switch.js"></script>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/css/bootstrap2/bootstrap-switch.css" rel="stylesheet">
+
+   
+      <style type="text/css">
+      #bootstrap-switch{
+        height: 30px;
+        width: 30px;
+        
+      }
+      </style>
+  <script>
+
+  
+  /* $( document ).ready(function() {
+   $("[name='my-checkbox']").bootstrapSwitch();
+}) */;
+    
+  </script>
+<!-- Optional theme -->
+
+<!-- Latest compiled and minified JavaScript -->
+
+
+
+<title>Vendor</title>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+ <script src="http://maps.googleapis.com/maps/api/js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+ <script>
+ 
+ 
+ function OnChangeCheckbox (checkbox) {
+     if (checkbox.checked) {
+         alert ("The check box is checked.");
+     
+     
+     }
+     else {
+         alert ("The check box is not checked.");
+     }
+ }
+ 
+ function deleteSensor (e) {
+	 alert('fff'+e);
+	 
+	// alert("id is "+e.attr('id'));
+          var data1={"e1":e};
+         alert ("delete button  is checked.");
+         $.ajax({
+        	 type: "POST",
+        	 url: "/deleteSensor",
+        	 data:data1,
+        	 dataType: 'json',
+        	 success: function(res){
+        	 console.log("in rtkook");
+        	 //window.location = "user.js";
+              alert('byebye');
+        	 window.location.assign('/getusers');
+        	 }
+        	 }); 
+     
+   
+    
+ }
+
+
+$(document).ready(function(){
+    $("#hide").click(function(){
+        $("#googleMap").hide();
+    });
+    $("#show").click(function(){
+        $("#googleMap").show();
+    });
+});
+</script>
+
+
+ <script>
+ var a=[];
+ var b=[];
+ var l=[];
+ var id1=[];
+ id1.push(<%= id %>);
+ alert(id1);
+ var count=<%= lat.length %>;
+ b.push(<%= lat %>);
+ a.push(<%= lng %>);
+// var yolo={"x":"ruchit","y":"kadakia"};
+ <% for(var i=0; i<(loc).length; i++) {%>
+ l.push("<%= loc[i]%>");
+ <% } %>
+ //loc.push("ruc");
+ 
+/*  alert(l);
+ alert(b); */
+ // alert('patel'+ lng.length);
+ 
+//alert("fkjhjk"+a.toString());
+      var map;
+      //console.log(<%= lat[2] %>);
+      //alert(<%= lat[2] %>);
+      function initMap() {
+      
+         var myLatLng = {lat: 37.3382, lng: 121.8863};
+        map = new google.maps.Map(document.getElementById('googleMap'), {
+          center: {lat: 37.3382, lng: -121.8863},
+          zoom: 5
+        });
+        alert(l.length);
+ 		var no;       
+       var z;
+        for(z=0;z<id1.length;z++){
+        	alert(l[z]);
+        	
+        	
+
+var marker = new google.maps.Marker({
+
+    
+    position: {lat: b[z], lng: a[z]},
+    map: map,
+    //draggable:true,
+    title:l[z]
+});
+
+var infowindow = new google.maps.InfoWindow({
+	  content:b[z]
+	  });
+
+
+google.maps.event.addListener(marker, 'click', (function(marker, z) {
+    return function() {
+        infowindow.setContent(b[z]);
+        infowindow.open(map, marker);
+    }
+})(marker, z));
+
+
+
+
+
+
+
+var table = document.getElementById("myTable");
+ var row = table.insertRow(1);
+ var cell1 = row.insertCell(0);
+ var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+       var cell4 = row.insertCell(3);
+       var cell5=row.insertCell(4);
+       
+ var cell6=row.insertCell(5);
+ var cell7=row.insertCell(5);
+
+ //var sensorid= Math.floor(Math.random() * 9999) + 1000 
+ cell1.innerHTML =id1[z] ;
+if(Math.floor(Math.random() * 2) + 1==1)
+
+ cell2.innerHTML = "Carbon Monoxide";
+
+else
+cell2.innerHTML = "Nitrogen  dioxide";
+
+cell4.innerHTML =l[z];
+cell5.innerHTML =Date()+"";
+
+cell7.innerHTML='<input type="checkbox" onclick="OnChangeCheckbox(this)"  id="bootstrap-switch" name="my-checkbox" checked>';
+
+ 
+ var element_id = id1[z];
+
+  cell6.innerHTML='<input type="submit" name='+element_id+'  value= "delete sensor"+'+element_id+' id='+element_id+'  onclick="deleteSensor('+element_id+')"></input>';
+   
+
+   }}
+
+        
+      
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXnffF7ylILywQ59fUIYcfCntsrMNMIcg&callback=initMap"
+    async defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+	<style>
+  <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      #bootstrap-switch{
+        height: 50px;
+        width: 50px;
+      }
+
+      html, body {
+        height: 100%;
+        
+        padding: 0;
+      }
+
+
+table {
+    border-collapse: collapse;
+}
+
+ table, th, td {
+    border: 1px solid black;
+    padding: 10px;
+
+}
+
+
+      #map {
+        height: 50%;
+        width: 50%;
+        position: static;
+        left:250px;
+        top:250px;
+      }
+
+
+		body {
+  margin: 0;
+  padding: 0;
+  font-family: 'roboto', arial, helvetica, sans-serif;
+  color: #007FFF;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.3em;
+}
+* {
+  box-sizing: border-box;
+}
+.clear:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+p {
+  margin: 0;
+}
+p + p {
+  margin-top: .5em;
+}
+.wrapper {
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 1em;
+}
+.wrapper:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 300;
+}
+.main a {
+  border-bottom: 1px dotted;
+}
+.main a:hover {
+  border: transparent;
+}
+.three-col:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+@media (min-width: 768px) {
+  .three-col > * {
+    width: 33.333%;
+    float: left;
+  }
+}
+.button {
+  display: inline-block;
+  background: #c76d5b;
+  color: white;
+  padding: 1em 1.25em;
+  text-transform: uppercase;
+  font-weight: normal;
+  cursor: pointer;
+}
+.button:hover {
+  background: #341d34;
+}
+h1 {
+  font-size: 36px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 20px;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-weight: normal;
+  font-family: 'roboto condensed';
+  line-height: 1em;
+}
+.page-title {
+  float: left;
+  padding: 0 2em;
+}
+.page-title h1 {
+  margin: 15px 0 0px;
+}
+.page-title .breadcrumbs {
+  font-size: 14px;
+}
+.page-title .breadcrumbs > * {
+  opacity: .5;
+}
+.page-title .breadcrumbs > *:last-child {
+  opacity: .75;
+}
+.logo {
+  border-left: 10px #007FFF solid;
+  border-right: 1px #007FFF solid;
+  background: #ffffff;
+  width: 220px;
+  float: left;
+  padding: 1em;
+}
+@media (min-width: 768px) {
+  .user-panel {
+    float: right;
+    margin-top: 15px;
+  }
+  .user-panel a {
+    margin-left: 1em;
+  }
+}
+.user-panel a {
+  text-transform: uppercase;
+}
+.user-panel .accedi,
+.user-panel .portafogli,
+.user-panel .guida {
+  display: inline-block;
+  color: black;
+  margin: 0 5px;
+}
+.user-panel .accedi .icon,
+.user-panel .portafogli .icon,
+.user-panel .guida .icon {
+  background: url(http://i64.tinypic.com/25sc2s1.png) no-repeat;
+  width: 40px;
+  height: 40px;
+  margin: auto;
+}
+.user-panel .accedi:hover,
+.user-panel .portafogli:hover,
+.user-panel .guida:hover {
+  opacity: .7;
+}
+.user-panel .portafogli .icon {
+  background-position: left top;
+}
+.user-panel .accedi .icon {
+  background-position: center top;
+}
+.user-panel .guida .icon {
+  background-position: right top;
+}
+@media (max-width: 767px) {
+  .user-panel {
+    padding: 5px 0 10px;
+    margin: auto;
+    text-align: center;
+  }
+}
+.main {
+  max-width: 600px;
+  padding: 1px 2em 2em 2em;
+  position: relative;
+  margin-left: 220px;
+}
+.main label {
+  font-weight: normal;
+  margin-left: .5em;
+}
+.main .option-block {
+  margin-top: 1em;
+  line-height: 1em;
+}
+.action-panel {
+  position: absolute;
+  top: -70px;
+  right: 0;
+  z-index: 1;
+}
+.action-panel .action {
+  margin: .5em;
+  width: 25px;
+  height: 25px;
+  font-size: 32px;
+  line-height: 25px;
+  display: inline-block;
+  cursor: pointer;
+}
+.action-panel .action.add {
+  background-position: left center;
+}
+.action-panel .action.edit {
+  background-position: center;
+}
+.action-panel .action.delete:hover {
+  color: #c00;
+}
+.action-panel .action:Hover {
+  opacity: .75;
+}
+.action-panel .action:active {
+  transform: scale(1.2);
+}
+aside {
+  border-left: 10px #007FFF solid;
+  border-right: 1px #007FFF solid;
+  background: #ffffff;
+  width: 220px;
+  min-height: 650px;
+  float: left;
+}
+aside .main-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+aside .main-menu .icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+aside .main-menu a {
+  padding: 1em;
+  display: block;
+  text-decoration: none;
+  border-bottom: none;
+  position: relative;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+aside .main-menu a.active,
+aside .main-menu a:hover {
+  background: #007FFF;
+  color: white;
+  text-decoration: none;
+}
+aside .main-menu a.active:after {
+  width: 0;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 33%;
+  right: 0px;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid white;
+}
+
+@media (min-width: 768px) {
+  .footer .three-col > *:nth-child(1),
+  .footer .three-col > *:nth-child(3) {
+    width: 25%;
+  }
+  .footer .three-col > *:nth-child(2) {
+    width: 50%;
+  }
+}
+	</style>
+
+</head>
+<body>
+
+  
+  
+
+	<section class="top clear">
+  <div class="logo">
+    <center><img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/700118-icon-20-clouds-128.png" width="50" /></center>
+  </div>
+  <div class="page-title">
+<!--   <% for(var i=0; i < lat.length; i++) { %>
+  (<%= lat.length %>+"anuj");
+   <p>
+     <%= lat[i] %>
+     <%= lng[i] %>
+   </p>
+<% } %> -->
+  
+
+  </div>
+</section>
+<section class="clear">
+  <aside>
+    <nav class="main-menu">
+
+      <ul>
+        <li><a href="#" ><span class="icon ion-heart"></span>Vendor Profile</a></li>
+        <li><a href="#" ><span class="icon ion-android-star"></span>Statistics</a></li>
+        <li><a href="/mysensors" ><span class="icon ion-android-star"></span>my  Sensor</a></li>
+        <li><a href="#" class="active"><span class="icon ion-person-stalker"></span>Add a Sensor</a></li>
+        <li><a href="#"><span class="icon ion-email"></span>Billing Overview</a></li>
+ 
+      </ul>
+    </nav>
+  </aside>
+  <section class="main">
+    <div class="action-panel">
+      <span class="action add ion-plus"></span>
+      <span class="action edit ion-edit"></span>
+      <span class="action delete ion-trash-a"></span>
+    </div>
+    <div style="width: 1000px;height: 615px;">
+         <hr>
+    <div>
+      <strong>Add a Sensor</strong>
+    
+
+    </div>
+    <button id="hide">Hide Map</button>
+<button id="show">Show Map</button>
+    <div id="googleMap" style="width:500px;height:380px;"></div>
+    <hr>
+    <form>
+      <div>
+
+
+      </div>
+    </form>
+    </div>
+    <div>
+<table id="myTable" class="table table-hover">
+  <tr>
+    
+    <th>Sensor id</th>
+    <th>Sensor type</th>
+<th>Sensor Reading</th>
+<th>Sensor Location</th>
+<th>Created at</th>
+<th>Sensor Status</th>
+<th>Delete Sensor</th>
+
+  </tr>
+</table>
+
+    </div>
+   
+  </section>
+</section>
+</body>
+</html>

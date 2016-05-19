@@ -1,0 +1,59 @@
+<html>
+<head>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+  <script src="http://cdn.oesmith.co.uk/morris-0.4.1.min.js"></script>
+<meta charset=utf-8 />
+<script type="text/javascript">
+
+var totalquery=[];
+
+var tag=[];
+
+ <% for (var d=0;d<data.length;d++){%>
+ totalquery.push('<%= data[d].sensor_type %>');
+ tag.push(<%= data[d].ViewCount %>);
+/*  tag.push("C#");
+ tag.push("C#");
+ tag.push("C#");
+ tag.push("C#");
+ tag.push("C#");
+ tag.push("C#");
+ tag.push("C#");
+ tag.push("C#");
+ tag.push("C#");
+ tag.push("C#"); */
+
+
+ <%}%>
+
+</script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+  <script src="http://cdn.oesmith.co.uk/morris-0.4.1.min.js"></script>
+<meta charset=utf-8 />
+<meta charset=utf-8 />
+<title>Morris.js Line Chart Example</title>
+</head>
+
+<body>
+<h1><%= data[2].sensor_id %></h1>
+<div id="area-example"></div>
+</body>
+
+
+
+<script>
+Morris.Area({
+	  element: 'area-example',
+	  data: [
+	    { y: '<%= data[0].sensor_type %>', a: 100, b: 300 },
+	    { y: '<%= data[1].sensor_type %>', a: 500, b: 600 },
+	    { y: '<%= data[2].sensor_type %>', a: 200, b: 400 }
+	  ],
+	  xkey: 'y',
+	  ykeys: ['a', 'b'],
+	  labels: ['Series A', 'Series B']
+	});
+</script>
+</html>
