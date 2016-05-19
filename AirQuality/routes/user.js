@@ -90,7 +90,7 @@ exports.showUserAirQualityOverview=function(req,res){
 };
 
 exports.showUserSubscriptions=function(req,res){
-	var getUser="select * from team_project_281.sensor_user";
+	var getUser="select * from team_project_281.sensor_user where user_id='"+req.session.user_id+"'";
 	mysql.fetchData(function(err,results){
 		if(err)
 			console.error(err);
@@ -152,7 +152,8 @@ exports.latlong=function(req,res){
 	var lat1
 	var lng=0;
 	console.log("laylong");
-	var getUser = "update team_project_281.sensor_user set bill_amount=sensor_duration*0.1+ViewCount*2 where sensor_id='"+req.param("sensor_id")+"'and user_id='"+req.session.user_id+"'";
+	var getUser = "update team_project_281.sensor_user set bill_amount=sensor_duration*0.1+ViewCount*2 where sensor_id='"+req.param("sensor_id")+"'and 
+='"+req.session.user_id+"'";
 	var getUser1 = "select * from team_project_281.sensor_user where sensor_id='"+req.param("sensor_id")+"' and user_id='"+req.session.user_id+"'";
 	mysql.fetchData(function(err,results){
 		if(err)
@@ -162,7 +163,7 @@ exports.latlong=function(req,res){
 			return;
 	}
 		else{
-			//console.log(results[0].sensor_id);
+
 			var hi = 'Admin_VendorOverview.ejs';
 			mysql.fetchData(function(err,results1){
 				if(err)
@@ -235,7 +236,8 @@ exports.ShowBill=function(req,res){
 	var lat1
 	var lng=0;
 	console.log("laylong");
-	var getUser="update team_project_281.sensor_user set bill_amount=sensor_duration*0.1+ViewCount*2 where sensor_id='"+req.param("sensor_id")+"'and user_id='"+req.session.user_id+"'";
+	var getUser="update team_project_281.sensor_user set bill_amount=sensor_duration*0.1+ViewCount*2 where sensor_id='"+req.param("sensor_id")+"'and " +
+			"='"+req.session.user_id+"'";
 	mysql.fetchData(function(err,results){
 		if(err)
 		console.error(err);
@@ -256,7 +258,8 @@ else
 		r=1;
 							//console.log(req.body.x);
 	console.log("kjhdjk"+x);
-	var getUser="update team_project_281.sensor_user  set sensor_end_time=CURRENT_TIMESTAMP,sensor_status='"+r+"' where sensor_id='"+x+"'and user_id='"+req.session.user_id+"'";
+	var getUser="update team_project_281.sensor_user  set sensor_end_time=CURRENT_TIMESTAMP,sensor_status='"+r+"' where sensor_id='"+x+"'and 
+='"+req.session.user_id+"'";
 	mysql.fetchData(function(err,results){
 			
 		if(err)
