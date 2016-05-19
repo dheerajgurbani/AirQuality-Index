@@ -13,7 +13,7 @@ function fetchData(callback, sqlQuery){
 	var connection = mysql.createConnection({
 		host : 'localhost',
 		user : 'root',
-		password : '',
+		password : 'root',
 		database : 'team_project_281',
 		port : 3306
 	});
