@@ -11,7 +11,7 @@ function fetchData(callback, sqlQuery){
 	
 	console.log("\nSqlquery:: "+ sqlQuery );
 	var connection = mysql.createConnection({
-		host : 'localhost',
+		host : 'ec2-54-200-15-154.us-west-2.compute.amazonaws.com',
 		user : 'root',
 		password : '',
 		database : 'team_project_281',

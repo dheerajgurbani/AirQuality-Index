@@ -5,7 +5,7 @@ var m=require("mysql");
 
 var c=m.createConnection({
 
-	host: 'localhost',
+	host: 'ec2-54-200-15-154.us-west-2.compute.amazonaws.com',
 
 	user: 'root',
 
